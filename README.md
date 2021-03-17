@@ -1,2 +1,2 @@
 # c-sharp-udemy-kurs
-# hallo 
+Hallo, mein erstes Github Repository
