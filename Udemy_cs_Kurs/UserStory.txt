@@ -1,8 +1,9 @@
 ﻿User Story für die Bullet Journal Web App
 
-Titel: 
-Story: 
+Titel: Softwarestruktur
+Story: Als Entwickler möchte ich den Quellcode sauber strukturieren, um später einfach weitere Funktionalitäten hinzufügen zu können
 Akzeptanzkriterien:
+	* Das Single Level of Abstraction Prinzip wird eingehalten, oder eine Abweichung ist begründet und dokumentiert
 
 Titel: 
 Story: 
