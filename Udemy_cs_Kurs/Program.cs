@@ -10,9 +10,10 @@ namespace Udemy_cs_Kurs
     {
         static void Main(string[] args)
         {
-            string ersteZahlAlsString = HoleBenutzereingabe("Bitte schreibe die erste Zahl:");
-            string zweiteZahlAlsString = HoleBenutzereingabe("Bitte schreibe die zweite Zahl:");
-            string operation = HoleBenutzereingabe("Bitte gebe eine Operation ein (+, -, * oder /):");
+            ConsoleView view = new ConsoleView();
+            string ersteZahlAlsString = view.HoleBenutzereingabe("Bitte schreibe die erste Zahl:");
+            string zweiteZahlAlsString = view.HoleBenutzereingabe("Bitte schreibe die zweite Zahl:");
+            string operation = view.HoleBenutzereingabe("Bitte gebe eine Operation ein (+, -, * oder /):");
 
             double ersteZahl = KonvertierungStringInDouble(ersteZahlAlsString);
             double zweiteZahl = KonvertierungStringInDouble(zweiteZahlAlsString);
