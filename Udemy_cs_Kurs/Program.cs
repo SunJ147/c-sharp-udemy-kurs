@@ -18,8 +18,8 @@ namespace Udemy_cs_Kurs
             double zweiteZahl = KonvertierungStringInDouble(zweiteZahlAlsString);
 
             RechnerModel model = new RechnerModel();
-            double ergebnis = model.FuehreRechnungAus(ersteZahl, zweiteZahl, operation);
-            GebeErgebnisAus(ergebnis, operation);
+            model.FuehreRechnungAus(ersteZahl, zweiteZahl, operation);
+            GebeErgebnisAus(model.Resultat, operation);
         }
 
         static void GebeErgebnisAus(double ergebnis, string operation)

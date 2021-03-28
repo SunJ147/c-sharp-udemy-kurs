@@ -8,18 +8,22 @@ namespace Udemy_cs_Kurs
 {
     class RechnerModel
     {
-        public double FuehreRechnungAus(double ersteZahl, double zweiteZahl, string operation)
-        {
-            double resultat = 0;
+        public double Resultat { get; private set; }
 
+        public RechnerModel()
+        {
+            Resultat = 0;
+        }
+
+        public void FuehreRechnungAus(double ersteZahl, double zweiteZahl, string operation)
+        { 
             switch (operation)
             {
-                case "+": resultat = Addiere(ersteZahl, zweiteZahl); break;
-                case "-": resultat = Subtrahiere(ersteZahl, zweiteZahl); break;
-                case "*": resultat = Multipliziere(ersteZahl, zweiteZahl); break;
-                case "/": resultat = Dividiere(ersteZahl, zweiteZahl); break;
+                case "+": Resultat = Addiere(ersteZahl, zweiteZahl); break;
+                case "-": Resultat = Subtrahiere(ersteZahl, zweiteZahl); break;
+                case "*": Resultat = Multipliziere(ersteZahl, zweiteZahl); break;
+                case "/": Resultat = Dividiere(ersteZahl, zweiteZahl); break;
             }
-            return resultat;
         }
 
         private double Addiere(double ersteZahl, double zweiteZahl)
