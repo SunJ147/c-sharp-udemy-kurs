@@ -17,7 +17,8 @@ namespace Udemy_cs_Kurs
             double ersteZahl = KonvertierungStringInDouble(ersteZahlAlsString);
             double zweiteZahl = KonvertierungStringInDouble(zweiteZahlAlsString);
 
-            double ergebnis = FuehreRechnungAus(ersteZahl, zweiteZahl, operation);
+            RechnerModel model = new RechnerModel();
+            double ergebnis = model.FuehreRechnungAus(ersteZahl, zweiteZahl, operation);
             GebeErgebnisAus(ergebnis, operation);
         }
 
@@ -56,38 +57,5 @@ namespace Udemy_cs_Kurs
             return Console.ReadLine();
         }
         
-        static double FuehreRechnungAus(double ersteZahl, double zweiteZahl, string operation)
-        {
-            double resultat = 0;
-
-            switch (operation)
-            {
-                case "+": resultat = Addiere(ersteZahl, zweiteZahl); break;
-                case "-": resultat = Subtrahiere(ersteZahl, zweiteZahl); break;
-                case "*": resultat = Multipliziere(ersteZahl, zweiteZahl); break;
-                case "/": resultat = Dividiere(ersteZahl, zweiteZahl); break;
-            }
-            return resultat;
-        }
-
-        static double Addiere(double ersteZahl, double zweiteZahl)
-        {
-            return ersteZahl + zweiteZahl;
-        }
-
-        static double Multipliziere(double ersteZahl, double zweiteZahl)
-        {
-            return ersteZahl * zweiteZahl;
-        }
-
-        static double Subtrahiere(double ersteZahl, double zweiteZahl)
-        {
-            return ersteZahl - zweiteZahl;
-        }
-
-        static double Dividiere(double ersteZahl, double zweiteZahl)
-        {
-            return ersteZahl / zweiteZahl;
-        }
     }
 }

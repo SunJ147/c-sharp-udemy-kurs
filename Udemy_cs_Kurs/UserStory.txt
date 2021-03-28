@@ -5,9 +5,15 @@ Story: Als Entwickler möchte ich den Quellcode sauber strukturieren, um später
 Akzeptanzkriterien:
 	* Das Single Level of Abstraction Prinzip wird eingehalten, oder eine Abweichung ist begründet und dokumentiert
 
-Titel: 
-Story: 
+Titel: Objektorientierung
+Story: Als Entwickler möchte ich die Anwendung objektorientiert programmieren, um später einfach weiter Funktionalitäten hinzufügen zu können
 Akzeptanzkriterien:
+	* Die Aufteilung der Funktionalitäten folgt dem Prinzip Separation of Concerns (SoC)
+	* Bei der Erstellung von Klassen und Methoden wird das Prinzip Don't Repeat Yourself (DRY) eingehalten
+Hinweis:
+	* Diese Story ist eine Erweiterung der Story Softwarestruktur
+Status: 
+	* Offen
 
 Titel: 
 Story: 
