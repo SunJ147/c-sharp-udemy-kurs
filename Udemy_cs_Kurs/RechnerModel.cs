@@ -9,14 +9,17 @@ namespace Udemy_cs_Kurs
     class RechnerModel
     {
         public double Resultat { get; private set; }
+        public string Operation { get; private set; }
 
         public RechnerModel()
         {
             Resultat = 0;
+            Operation = "unbekannt";    
         }
 
         public void FuehreRechnungAus(double ersteZahl, double zweiteZahl, string operation)
-        { 
+        {
+            this.Operation = operation;
             switch (operation)
             {
                 case "+": Resultat = Addiere(ersteZahl, zweiteZahl); break;

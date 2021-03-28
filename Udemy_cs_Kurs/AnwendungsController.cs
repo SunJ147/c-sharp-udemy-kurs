@@ -19,21 +19,13 @@ namespace Udemy_cs_Kurs
 
         public void Ausfuehren()
         {
-            string ersteZahlAlsString = view.HoleZahlVonBenutzer();
+            double ersteZahl = view.HoleZahlVonBenutzer();
             string operation = view.HoleOperatorVonBenutzer();
-            string zweiteZahlAlsString = view.HoleZahlVonBenutzer();
-
-            double ersteZahl = KonvertierungStringInDouble(ersteZahlAlsString);
-            double zweiteZahl = KonvertierungStringInDouble(zweiteZahlAlsString);
+            double zweiteZahl = view.HoleZahlVonBenutzer();
 
             model.FuehreRechnungAus(ersteZahl, zweiteZahl, operation);
-            view.GebeErgebnisAus(operation);
+            view.GebeErgebnisAus();
             view.WarteAufEndeVonBenutzer();
-        }
-
-        static double KonvertierungStringInDouble(string zahl)
-        {
-            return Convert.ToDouble(zahl);
         }
     }
 }

@@ -16,15 +16,17 @@ namespace Udemy_cs_Kurs
             this.model = model;
         }
 
-        public string HoleBenutzereingabe(string konsolenAusgabe)
+        /*public double HoleBenutzereingabe(string konsolenAusgabe)
         {
+            string zahl;
             Console.Write(konsolenAusgabe);
-            return Console.ReadLine();
-        }
+            zahl = Console.ReadLine();
+            return Convert.ToDouble(zahl);
+        }*/
 
-        public void GebeErgebnisAus(string operation)
+        public void GebeErgebnisAus()
         {
-            switch (operation)
+            switch (model.Operation)
             {
                 case "+":
                     Console.WriteLine($"Die Summe ist: {model.Resultat}");
@@ -41,10 +43,12 @@ namespace Udemy_cs_Kurs
             }
             return;
         }
-        public string HoleZahlVonBenutzer()
+        public double HoleZahlVonBenutzer()
         {
+            string zahl;
             Console.Write("Bitte gib eine Zahl ein: ");
-            return Console.ReadLine();
+            zahl = Console.ReadLine();
+            return Convert.ToDouble(zahl);
         }
 
         public string HoleOperatorVonBenutzer()
