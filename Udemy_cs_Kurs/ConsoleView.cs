@@ -8,6 +8,13 @@ namespace Udemy_cs_Kurs
 {
     class ConsoleView
     {
+        private RechnerModel model;
+
+        public ConsoleView(RechnerModel model)
+        {
+            //this. weil das attribut und das argument beide model heißen
+            this.model = model;
+        }
 
         public string HoleBenutzereingabe(string konsolenAusgabe)
         {
@@ -15,28 +22,41 @@ namespace Udemy_cs_Kurs
             return Console.ReadLine();
         }
 
-        public void GebeErgebnisAus(double ergebnis, string operation)
+        public void GebeErgebnisAus(string operation)
         {
             switch (operation)
             {
                 case "+":
-                    Console.WriteLine($"Die Summe ist: {ergebnis}");
-                    Console.ReadLine();
+                    Console.WriteLine($"Die Summe ist: {model.Resultat}");
                     break;
                 case "-":
-                    Console.WriteLine($"Die Differenz ist: {ergebnis}");
-                    Console.ReadLine();
+                    Console.WriteLine($"Die Differenz ist: {model.Resultat}");
                     break;
                 case "*":
-                    Console.WriteLine($"Die Multiplikation ergibt: {ergebnis}");
-                    Console.ReadLine();
+                    Console.WriteLine($"Die Multiplikation ergibt: {model.Resultat}");
                     break;
                 case "/":
-                    Console.WriteLine($"Die Division ergibt: {ergebnis}");
-                    Console.ReadLine();
+                    Console.WriteLine($"Die Division ergibt: {model.Resultat}");
                     break;
             }
             return;
+        }
+        public string HoleZahlVonBenutzer()
+        {
+            Console.Write("Bitte gib eine Zahl ein: ");
+            return Console.ReadLine();
+        }
+
+        public string HoleOperatorVonBenutzer()
+        {
+            Console.Write("Bitte gib eine Operation ein (+, -, * oder /): ");
+            return Console.ReadLine();
+        }
+
+        public string WarteAufEndeVonBenutzer()
+        {
+            Console.Write("Zum Beenden bitte Return drücken! ");
+            return Console.ReadLine();
         }
     }
 }

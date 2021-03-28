@@ -9,18 +9,21 @@ namespace Udemy_cs_Kurs
     class Program
     {
         static void Main(string[] args)
-        {
-            ConsoleView view = new ConsoleView();
-            string ersteZahlAlsString = view.HoleBenutzereingabe("Bitte schreibe die erste Zahl:");
-            string zweiteZahlAlsString = view.HoleBenutzereingabe("Bitte schreibe die zweite Zahl:");
-            string operation = view.HoleBenutzereingabe("Bitte gebe eine Operation ein (+, -, * oder /):");
+        {   
+            RechnerModel model = new RechnerModel();
+            ConsoleView view = new ConsoleView(model);
+            string ersteZahlAlsString = view.HoleZahlVonBenutzer();
+            string operation = view.HoleOperatorVonBenutzer();
+            string zweiteZahlAlsString = view.HoleZahlVonBenutzer();
+            
 
             double ersteZahl = KonvertierungStringInDouble(ersteZahlAlsString);
             double zweiteZahl = KonvertierungStringInDouble(zweiteZahlAlsString);
 
-            RechnerModel model = new RechnerModel();
+            
             model.FuehreRechnungAus(ersteZahl, zweiteZahl, operation);
-            GebeErgebnisAus(model.Resultat, operation);
+            view.GebeErgebnisAus(operation);
+            view.WarteAufEndeVonBenutzer();
         }
 
         static void GebeErgebnisAus(double ergebnis, string operation)
