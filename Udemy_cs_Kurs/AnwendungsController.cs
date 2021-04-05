@@ -19,11 +19,8 @@ namespace Udemy_cs_Kurs
 
         public void Ausfuehren()
         {
-            double ersteZahl = view.HoleZahlVonBenutzer();
-            string operation = view.HoleOperatorVonBenutzer();
-            double zweiteZahl = view.HoleZahlVonBenutzer();
-
-            model.FuehreRechnungAus(ersteZahl, zweiteZahl, operation);
+            view.HoleEingabenVomBenutzer();
+            model.FuehreRechnungAus();
             view.GebeErgebnisAus();
             view.WarteAufEndeVonBenutzer();
         }

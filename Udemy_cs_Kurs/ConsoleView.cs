@@ -16,14 +16,6 @@ namespace Udemy_cs_Kurs
             this.model = model;
         }
 
-        /*public double HoleBenutzereingabe(string konsolenAusgabe)
-        {
-            string zahl;
-            Console.Write(konsolenAusgabe);
-            zahl = Console.ReadLine();
-            return Convert.ToDouble(zahl);
-        }*/
-
         public void GebeErgebnisAus()
         {
             switch (model.Operation)
@@ -43,7 +35,15 @@ namespace Udemy_cs_Kurs
             }
             return;
         }
-        public double HoleZahlVonBenutzer()
+
+        public void HoleEingabenVomBenutzer()
+        {
+            model.ErsteZahl = HoleZahlVonBenutzer();
+            model.Operation = HoleOperatorVonBenutzer();
+            model.ZweiteZahl = HoleZahlVonBenutzer();
+        }
+
+        private double HoleZahlVonBenutzer()
         {
             string zahl;
             Console.Write("Bitte gib eine Zahl ein: ");
@@ -51,7 +51,7 @@ namespace Udemy_cs_Kurs
             return Convert.ToDouble(zahl);
         }
 
-        public string HoleOperatorVonBenutzer()
+        private string HoleOperatorVonBenutzer()
         {
             Console.Write("Bitte gib eine Operation ein (+, -, * oder /): ");
             return Console.ReadLine();

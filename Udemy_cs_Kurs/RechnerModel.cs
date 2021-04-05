@@ -9,7 +9,9 @@ namespace Udemy_cs_Kurs
     class RechnerModel
     {
         public double Resultat { get; private set; }
-        public string Operation { get; private set; }
+        public string Operation { get; set; }
+        public double ErsteZahl { get; set; }
+        public double ZweiteZahl { get; set; }
 
         public RechnerModel()
         {
@@ -17,15 +19,14 @@ namespace Udemy_cs_Kurs
             Operation = "unbekannt";    
         }
 
-        public void FuehreRechnungAus(double ersteZahl, double zweiteZahl, string operation)
+        public void FuehreRechnungAus()
         {
-            this.Operation = operation;
-            switch (operation)
+            switch (Operation)
             {
-                case "+": Resultat = Addiere(ersteZahl, zweiteZahl); break;
-                case "-": Resultat = Subtrahiere(ersteZahl, zweiteZahl); break;
-                case "*": Resultat = Multipliziere(ersteZahl, zweiteZahl); break;
-                case "/": Resultat = Dividiere(ersteZahl, zweiteZahl); break;
+                case "+": Resultat = Addiere(ErsteZahl, ZweiteZahl); break;
+                case "-": Resultat = Subtrahiere(ErsteZahl, ZweiteZahl); break;
+                case "*": Resultat = Multipliziere(ErsteZahl, ZweiteZahl); break;
+                case "/": Resultat = Dividiere(ErsteZahl, ZweiteZahl); break;
             }
         }
 
