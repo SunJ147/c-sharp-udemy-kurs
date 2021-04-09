@@ -14,7 +14,9 @@ namespace Udemy_cs_Kurs
         {
             //this. weil das attribut und das argument beide model heißen
             this.model = model;
+            BenutzerWillBeenden = false;
         }
+        public bool BenutzerWillBeenden { get; private set; }
 
         public void GebeErgebnisAus()
         {
@@ -36,19 +38,55 @@ namespace Udemy_cs_Kurs
             return;
         }
 
-        public void HoleEingabenVomBenutzer()
+        public void HoleEingabenFuerErsteBerechnungVomBenutzer()
         {
             model.ErsteZahl = HoleZahlVonBenutzer();
             model.Operation = HoleOperatorVonBenutzer();
             model.ZweiteZahl = HoleZahlVonBenutzer();
         }
 
-        private double HoleZahlVonBenutzer()
+        public void HoleEingabenFuerFortlaufendeBerechnung()
         {
-            string zahl;
-            Console.Write("Bitte gib eine Zahl ein: ");
-            zahl = Console.ReadLine();
-            return Convert.ToDouble(zahl);
+            string eingabe = HoleNaechsteAktionVomBenutzer();
+
+            if (eingabe == "FERTIG")
+            {
+                BenutzerWillBeenden = true;
+            }
+            else
+            {
+                model.ErsteZahl = model.Resultat;
+                model.ZweiteZahl = Convert.ToDouble(eingabe);
+            }
+        }
+
+        private string HoleNaechsteAktionVomBenutzer()
+        {
+            Console.Write("Bitte gib eine weitere Zahl ein (FERTIG zum Beenden): ");
+            return Console.ReadLine();
+        }
+
+        private double HoleZahlVonBenutzer()        //kontrolliert ob Konsoleneingabe eine double Zahl ist
+        {                                           //und im Intervall [-10, 100] liegt.
+            string eingabe;
+            double zahl = 0;
+            bool richtigerBereich = false;
+            Console.Write("Bitte gib eine Zahl ein (FERTIG zum Beenden): ");
+            eingabe = Console.ReadLine();
+            while (!richtigerBereich)
+            {
+                Console.Write("Es sind nur Zahlen zwischen -10 und 100 zulässig! Bitte gebe eine zulässige Zahl ein: ");
+                eingabe = Console.ReadLine();
+                while (!double.TryParse(eingabe, out zahl))
+                {
+                    Console.Write("Gebe eine gültige Gleitkommazahl ein:");
+                    eingabe = Console.ReadLine();
+                }
+                richtigerBereich = model.ZulaessigeZahl(zahl);
+                
+            }
+            return zahl;
+
         }
 
         private string HoleOperatorVonBenutzer()
@@ -57,10 +95,5 @@ namespace Udemy_cs_Kurs
             return Console.ReadLine();
         }
 
-        public string WarteAufEndeVonBenutzer()
-        {
-            Console.Write("Zum Beenden bitte Return drücken! ");
-            return Console.ReadLine();
-        }
     }
 }

@@ -19,10 +19,18 @@ namespace Udemy_cs_Kurs
 
         public void Ausfuehren()
         {
-            view.HoleEingabenVomBenutzer();
+            view.HoleEingabenFuerErsteBerechnungVomBenutzer();
             model.FuehreRechnungAus();
             view.GebeErgebnisAus();
-            view.WarteAufEndeVonBenutzer();
+
+            view.HoleEingabenFuerFortlaufendeBerechnung();
+
+            while (!view.BenutzerWillBeenden)
+            {
+                model.FuehreRechnungAus();
+                view.GebeErgebnisAus();
+                view.HoleEingabenFuerFortlaufendeBerechnung();
+            }
         }
     }
 }

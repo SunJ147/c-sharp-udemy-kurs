@@ -18,7 +18,15 @@ namespace Udemy_cs_Kurs
             Resultat = 0;
             Operation = "unbekannt";    
         }
-
+        
+        public bool ZulaessigeZahl(double zahl)
+        {
+            if(zahl<-10f || zahl > 100)
+            {
+                return false;
+            }
+            return true;
+        }
         public void FuehreRechnungAus()
         {
             switch (Operation)
