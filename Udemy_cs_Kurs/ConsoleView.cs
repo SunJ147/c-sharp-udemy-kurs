@@ -49,7 +49,7 @@ namespace Udemy_cs_Kurs
         {
             string eingabe = HoleNaechsteAktionVomBenutzer();
 
-            if (eingabe == "FERTIG")
+            if (eingabe.ToUpper() == "FERTIG")
             {
                 BenutzerWillBeenden = true;
             }
@@ -69,21 +69,20 @@ namespace Udemy_cs_Kurs
         private double HoleZahlVonBenutzer()        //kontrolliert ob Konsoleneingabe eine double Zahl ist
         {                                           //und im Intervall [-10, 100] liegt.
             string eingabe;
-            double zahl = 0;
-            bool richtigerBereich = false;
+            double zahl;
             Console.Write("Bitte gib eine Zahl ein (FERTIG zum Beenden): ");
             eingabe = Console.ReadLine();
-            while (!richtigerBereich)
+            EingabeKontrollieren:
+            while (!double.TryParse(eingabe, out zahl))
+            {
+                Console.Write("Gebe eine gültige Gleitkommazahl ein:");
+                eingabe = Console.ReadLine();
+            }
+            if(!model.ZulaessigeZahl(zahl))
             {
                 Console.Write("Es sind nur Zahlen zwischen -10 und 100 zulässig! Bitte gebe eine zulässige Zahl ein: ");
                 eingabe = Console.ReadLine();
-                while (!double.TryParse(eingabe, out zahl))
-                {
-                    Console.Write("Gebe eine gültige Gleitkommazahl ein:");
-                    eingabe = Console.ReadLine();
-                }
-                richtigerBereich = model.ZulaessigeZahl(zahl);
-                
+                goto EingabeKontrollieren;
             }
             return zahl;
 
