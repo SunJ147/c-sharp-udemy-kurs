@@ -35,6 +35,7 @@ namespace Udemy_cs_Kurs
                     Console.WriteLine($"Die Division ergibt: {model.Resultat}");
                     break;
             }
+   
             return;
         }
 
@@ -91,7 +92,22 @@ namespace Udemy_cs_Kurs
         private string HoleOperatorVonBenutzer()
         {
             Console.Write("Bitte gib eine Operation ein (+, -, * oder /): ");
-            return Console.ReadLine();
+            string operation = Console.ReadLine();
+            while (!RichtigeOperatorEingabe(operation))
+            {
+                Console.Write("Bitte gib eine erlaubte Operation ein (+,-,*,/): ");
+                operation = Console.ReadLine();
+            }
+            return operation;
+        }
+
+        private bool RichtigeOperatorEingabe(string operation)
+        {
+            if(operation == "+" || operation == "-" || operation == "*" || operation == "/")
+            {
+                return true;
+            }
+            return false;
         }
 
     }
